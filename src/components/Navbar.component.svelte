@@ -1,0 +1,18 @@
+
+<script>
+
+</script>
+
+
+<nav class="nav">
+    <div class="nav-center">
+        <h1 class="nav-title">budget calculator</h1>
+        <button class="nav-btn"><i class="far fa-plus-square"></i>
+        add item
+        </button>
+    </div>
+</nav>
+
+<style>
+    /* your styles go here */
+</style>
