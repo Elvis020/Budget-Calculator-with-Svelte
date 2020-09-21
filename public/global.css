@@ -155,6 +155,11 @@ Navbar
 .nav-btn:hover {
   color: var(--darkGrey);
 }
+
+.nav-btn:focus{
+  border: none;
+  outline: none;
+}
 /* 
 ====== 
 Content 
@@ -225,6 +230,19 @@ Single Expense
 .delete-btn {
   color: red;
 }
+
+.delete-btn:focus{
+  outline: none;
+}
+.delete-btn:hover{
+  transform: scale(2);
+}
+.edit-btn:focus{
+  outline: none;
+}
+.edit-btn:hover{
+  transform: scale(2);
+}
 .edit-btn {
   color: green;
 }
@@ -275,6 +293,11 @@ Expense Form
   border: none;
   color: red;
   cursor: pointer;
+}
+
+.close-btn:focus{
+  border: none;
+  outline: none;
 }
 /* 
 ====== 
