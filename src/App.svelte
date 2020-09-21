@@ -1,4 +1,5 @@
 <script>
+	import {onMount} from 'svelte';
 	import Navbar from './components/Navbar.component.svelte';
 	import Title from './shared/Title.component.svelte';
 	import ExpenseForm from './components/ExpenseForm.component.svelte';
@@ -6,11 +7,19 @@
 	import Totals from './components/Totals.component.svelte';
 	import {setContext} from 'svelte';
 
-	
+
+	// Storing expenses in local Storage
+	function setLocalStorage(){
+		localStorage.setItem("expenses", JSON.stringify(expenses))
+	}
+
+	onMount(() => {
+		expenses = localStorage.getItem('expenses')? JSON.parse(localStorage.getItem('expenses')) : [];
+	})
 
 
 	// data
-	import expenseData from './Expenses';
+	// import expenseData from './Expenses';
 
 	// Adding a reactive statement to check whether its editing or its adding an expense
 	$: isEditing = setId ? true : false;
@@ -22,12 +31,13 @@
 
 
 	// Variables
-	let expenses = [...expenseData]
+	let expenses = []
 	// console.log(expenses);
 
 	// Functions
 	const removeExpense = (id) => {
 		expenses = expenses.filter( (item) => item.id !== id )
+		setLocalStorage()
 	}
 
 	// Function tpo add more Expenses to the expense list
@@ -38,6 +48,7 @@
 			amount
 		}
 		expenses = [expense, ...expenses] 
+		setLocalStorage()
 	}
 
 	// Setting editable variables
@@ -82,6 +93,7 @@
 		setId = null;
 		setName = '';
 		setAmount = null;
+		setLocalStorage()
 	}
 
 
@@ -98,7 +110,11 @@
 	// Functio to clear all expenses
 	const clearExpenses =() =>{
 		expenses=[]
+		setLocalStorage()
 	}
+
+
+	
 
 </script>
 

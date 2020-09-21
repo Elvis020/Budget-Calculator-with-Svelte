@@ -1,5 +1,24 @@
 <script>
+
+    import {onMount, onDestroy,beforeUpdate,afterUpdate} from 'svelte';
     import Title from "../shared/Title.component.svelte";
+
+
+    // Lifecycle Hooks
+    onMount(() => {
+        console.log("form has been mounted");
+    })
+    beforeUpdate(() => {
+        console.count("before update");
+    })
+    afterUpdate(() => {
+        console.log("after update");
+    })
+    onDestroy(() => {
+        console.log("form is hidden");
+    })
+
+
     // setting up two way binding
     export let name = '';
     export let amount = null;
